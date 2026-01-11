@@ -71,6 +71,7 @@ section { padding: 100px 0; } /* Espacio amplio entre secciones */
     background: linear-gradient(to right, var(--cian), var(--verde));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    display: inline-block; /* Ayuda a que el degradado se vea mejor */
 }
 .hero p { font-size: 1.2rem; color: var(--texto-gris); margin-bottom: 30px; max-width: 500px; }
 
