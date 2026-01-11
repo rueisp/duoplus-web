@@ -141,3 +141,56 @@ section { padding: 100px 0; } /* Espacio amplio entre secciones */
     .hero-content { margin-left: 0; text-align: center; }
     .btn-primary, .btn-outline { width: 100%; margin-bottom: 10px; }
 }
+
+/* --- ESTILOS PARA TARJETAS EXPANDIBLES --- */
+
+/* Ajuste a la tarjeta principal para que el clic funcione mejor */
+.promo-card {
+    cursor: pointer; /* Manito al pasar el mouse */
+    transition: all 0.3s ease; /* Animación suave */
+}
+
+/* Estilo de la flechita */
+.icon-arrow {
+    color: var(--texto-gris);
+    margin-top: 15px;
+    transition: transform 0.3s ease;
+}
+
+/* La parte oculta por defecto */
+.card-details {
+    max-height: 0;          /* Altura cero = oculto */
+    overflow: hidden;       /* Lo que sobresalga se esconde */
+    opacity: 0;             /* Transparente */
+    transition: all 0.5s ease-out; /* Velocidad de la animación de apertura */
+}
+
+/* Estilo de la imagen dentro del detalle */
+.details-img {
+    width: 100%;
+    border-radius: 10px;
+    margin-top: 20px;
+    margin-bottom: 15px;
+    border: 2px solid var(--negro-suave);
+}
+
+/* --- CLASE 'ACTIVE' (Se activa con JavaScript al hacer clic) --- */
+
+/* Cuando la tarjeta está activa, cambiamos el borde */
+.promo-card.active {
+    border-color: var(--cian);
+    background-color: #0a0a0a; /* Un negro un poquito más claro para resaltar */
+}
+
+/* Cuando está activa, rotamos la flechita */
+.promo-card.active .icon-arrow {
+    transform: rotate(180deg);
+    color: var(--cian);
+}
+
+/* Cuando está activa, mostramos los detalles */
+.promo-card.active .card-details {
+    max-height: 600px; /* Una altura máxima suficiente para que quepa la imagen */
+    opacity: 1;        /* Totalmente visible */
+    margin-top: 10px;
+}
