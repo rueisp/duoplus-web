@@ -194,3 +194,21 @@ section { padding: 100px 0; } /* Espacio amplio entre secciones */
     opacity: 1;        /* Totalmente visible */
     margin-top: 10px;
 }
+
+/* Estilo para el contenedor del logo (hace que imagen y texto se pongan en fila) */
+.logo {
+    display: flex;           /* Activa el modo fila */
+    align-items: center;     /* Centra verticalmente el texto con la imagen */
+    gap: 15px;               /* Espacio de separación entre la imagen y el texto */
+    text-decoration: none;   /* Por si acaso */
+}
+
+/* Estilo para el texto nuevo */
+.logo-text {
+    color: white;            /* Color del texto */
+    font-size: 1.1rem;       /* Tamaño de la letra */
+    font-weight: 600;        /* Grosor (seminegrita) */
+    font-family: 'Montserrat', sans-serif; /* Usamos la fuente bonita de los títulos */
+    letter-spacing: 1px;     /* Un poco de aire entre letras */
+    text-transform: uppercase; /* Opcional: pone todo en MAYÚSCULAS automáticamente */
+}
