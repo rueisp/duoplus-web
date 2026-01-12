@@ -121,7 +121,37 @@ section { padding: 100px 0; } /* Espacio amplio entre secciones */
 
 /* FOOTER */
 .footer-section { background-color: #000; border-top: 1px solid #222; padding: 60px 0 20px; }
-.footer-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; margin-bottom: 40px; }
+/* Configuramos el pie de página para tener 3 columnas */
+.footer-grid {
+    display: grid;
+    /* Antes era: 1fr 1fr. Ahora ponemos 3 columnas: */
+    grid-template-columns: 1fr 1fr 1fr; 
+    gap: 30px;
+    margin-bottom: 40px;
+    align-items: center; /* Centra verticalmente los elementos */
+}
+
+/* Estilo para la nueva imagen del centro */
+.footer-img-center img {
+    width: 100%;           /* Ocupa todo el ancho de su columna */
+    height: 250px;         /* Misma altura que el mapa para que se vea simétrico */
+    object-fit: cover;     /* Recorta la imagen si es necesario para no deformarla */
+    border-radius: 10px;   /* Bordes redondeados */
+    border: 1px solid #333; /* Un borde sutil para que resalte del fondo negro */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5); /* Sombra elegante */
+}
+
+/* IMPORTANTE: En celulares, volvemos a poner todo en 1 sola columna */
+@media (max-width: 768px) {
+    .footer-grid {
+        grid-template-columns: 1fr; /* Una sola columna vertical */
+    }
+    .footer-img-center img {
+        height: auto; /* En celular dejamos que la altura sea natural */
+        margin-bottom: 20px;
+    }
+}
+
 .footer-info i { color: var(--verde); width: 25px; }
 .copyright { text-align: center; color: #555; font-size: 0.8rem; border-top: 1px solid #111; padding-top: 20px; }
 
