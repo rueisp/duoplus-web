@@ -249,3 +249,12 @@ section { padding: 100px 0; }
     .footer-img-center img { height: auto; margin-bottom: 20px; }
     .logo-text { font-size: 0.9rem; } /* Logo texto más pequeño en móvil */
 }
+
+/* Estilo para destacar el número de teléfono en el pie de página */
+.phone-large {
+    font-size: 1.4rem;  /* Letra mucho más grande (antes era 1rem aprox) */
+    font-weight: bold;  /* Negrita */
+    margin-top: 15px;   /* Un poco de espacio arriba */
+    margin-bottom: 5px; /* Un poco de espacio abajo */
+    color: var(--verde); /* Usamos tu color verde corporativo */
+}
