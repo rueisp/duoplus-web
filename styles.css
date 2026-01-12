@@ -1,4 +1,6 @@
-/* VARIABLES DE COLOR (Tema Oscuro) */
+/* =========================================
+   1. VARIABLES Y CONFIGURACIÓN BÁSICA
+   ========================================= */
 :root {
     --negro-profundo: #050505;
     --negro-suave: #141414;
@@ -8,24 +10,24 @@
     --verde: #39B54A;   /* Color de tu logo */
 }
 
-/* RESET Y CONFIGURACIÓN BÁSICA */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
     font-family: 'Open Sans', sans-serif;
-    background-color: var(--negro-profundo); /* Fondo base negro */
+    background-color: var(--negro-profundo);
     color: var(--texto-blanco);
-    overflow-x: hidden; /* Evita scroll horizontal indeseado */
-    /* ELIMINAMOS cualquier 'overflow: hidden' o 'height: 100%' que bloqueaba el scroll */
+    overflow-x: hidden;
 }
 
 h1, h2, h3 { font-family: 'Montserrat', sans-serif; font-weight: 700; }
 a { text-decoration: none; }
 .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
 
-/* NAVBAR (Menú) */
+/* =========================================
+   2. BARRA DE NAVEGACIÓN (NAVBAR)
+   ========================================= */
 .navbar {
-    background-color: rgba(0, 0, 0, 0.9); /* Negro casi sólido */
+    background-color: rgba(0, 0, 0, 0.95);
     padding: 20px 0;
     position: sticky;
     top: 0;
@@ -34,12 +36,30 @@ a { text-decoration: none; }
 }
 
 .nav-container { display: flex; justify-content: space-between; align-items: center; }
-.logo img { height: 50px; } /* Ajusta el tamaño de tu logo */
 
+/* Logo y Texto del Logo */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.logo img { height: 50px; }
+
+.logo-text {
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 600;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* Enlaces del Menú */
 .nav-links { list-style: none; display: flex; gap: 30px; align-items: center; }
 .nav-links a { color: var(--texto-blanco); font-size: 0.9rem; transition: 0.3s; text-transform: uppercase; }
 .nav-links a:hover { color: var(--cian); }
 
+/* Botón del Menú */
 .btn-reserva {
     background: transparent;
     border: 2px solid var(--verde);
@@ -47,15 +67,17 @@ a { text-decoration: none; }
     border-radius: 50px;
     color: var(--verde) !important;
     font-weight: bold;
+    transition: 0.3s;
 }
 .btn-reserva:hover { background: var(--verde); color: white !important; }
 
-/* SECCIONES GENERALES */
-section { padding: 100px 0; } /* Espacio amplio entre secciones */
+/* =========================================
+   3. SECCIONES GENERALES Y PORTADA
+   ========================================= */
+section { padding: 100px 0; }
 
-/* HERO SECTION (Portada) */
 .hero {
-    height: 90vh; /* Ocupa casi toda la pantalla pero deja ver que hay más abajo */
+    height: 90vh;
     background: linear-gradient(to right, rgba(0,0,0,0.9), rgba(0,0,0,0.4)), 
                 url('img/portada.jpeg');
     background-size: cover;
@@ -64,27 +86,35 @@ section { padding: 100px 0; } /* Espacio amplio entre secciones */
     align-items: center;
 }
 
-.hero-content { max-width: 700px; margin-left: 10%; } /* Alineado a la izquierda */
-
+.hero-content { max-width: 700px; margin-left: 10%; }
 .hero h1 { font-size: 3.5rem; line-height: 1.2; margin-bottom: 20px; }
+.hero p { font-size: 1.2rem; color: var(--texto-gris); margin-bottom: 30px; max-width: 500px; }
+
+/* Textos con degradado */
 .text-gradient {
     background: linear-gradient(to right, var(--cian), var(--verde));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    display: inline-block; /* Ayuda a que el degradado se vea mejor */
+    display: inline-block;
 }
-.hero p { font-size: 1.2rem; color: var(--texto-gris); margin-bottom: 30px; max-width: 500px; }
 
+/* Botones Principales */
 .btn-primary {
     background: linear-gradient(45deg, var(--cian), var(--verde));
-    color: white; padding: 15px 40px; border-radius: 50px; font-weight: bold; display: inline-block; margin-right: 15px; box-shadow: 0 5px 20px rgba(0, 174, 239, 0.3);
+    color: white; padding: 15px 40px; border-radius: 50px; font-weight: bold; display: inline-block; margin-right: 15px; 
+    box-shadow: 0 5px 20px rgba(0, 174, 239, 0.3);
+    transition: 0.3s;
 }
+.btn-primary:hover { transform: scale(1.05); }
+
 .btn-outline {
-    border: 2px solid white; color: white; padding: 15px 40px; border-radius: 50px; font-weight: bold; display: inline-block;
+    border: 2px solid white; color: white; padding: 15px 40px; border-radius: 50px; font-weight: bold; display: inline-block; transition: 0.3s;
 }
 .btn-outline:hover { background: white; color: black; }
 
-/* SECCIÓN NOSOTROS (Fondo un poco más claro) */
+/* =========================================
+   4. SECCIÓN NOSOTROS
+   ========================================= */
 .section-dark { background-color: var(--negro-suave); }
 
 .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
@@ -98,7 +128,9 @@ section { padding: 100px 0; } /* Espacio amplio entre secciones */
 
 .about-image img { width: 100%; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.5); filter: grayscale(30%); }
 
-/* SECCIÓN SERVICIOS */
+/* =========================================
+   5. SECCIÓN SERVICIOS / PROMOCIONES
+   ========================================= */
 .section-black { background-color: var(--negro-profundo); text-align: center; }
 .section-header { margin-bottom: 60px; }
 .section-header h2 { font-size: 2.5rem; margin-bottom: 10px; }
@@ -106,139 +138,114 @@ section { padding: 100px 0; } /* Espacio amplio entre secciones */
 
 .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
 
+/* Estilo de la Tarjeta */
 .card {
     background: var(--negro-suave);
     padding: 40px 30px;
     border-radius: 15px;
     border: 1px solid #222;
     transition: 0.3s;
+    cursor: pointer; /* Indica que se puede hacer clic */
 }
-.card:hover { transform: translateY(-10px); border-color: var(--cian); }
+.card:hover { 
+    transform: translateY(-10px) scale(1.02); 
+    border-color: var(--cian); 
+    box-shadow: 0 10px 30px rgba(0, 174, 239, 0.1);
+}
 
 .icon-card { font-size: 3rem; color: var(--cian); margin-bottom: 20px; }
 .card h3 { margin-bottom: 15px; font-size: 1.3rem; }
 .card p { color: var(--texto-gris); font-size: 0.9rem; }
+.icon-arrow { color: var(--texto-gris); margin-top: 15px; font-size: 0.8rem; }
 
-/* FOOTER */
+/* IMPORTANTE: Esto oculta la imagen dentro de la tarjeta para que no moleste,
+   pero el JavaScript la puede leer para mostrarla en el Lightbox */
+.card-details { display: none; }
+
+/* =========================================
+   6. LIGHTBOX (VENTANA EMERGENTE)
+   ========================================= */
+.modal {
+    display: none; /* Oculto por defecto */
+    position: fixed; 
+    z-index: 9999;
+    left: 0; top: 0;
+    width: 100%; height: 100%; 
+    background-color: rgba(0,0,0,0.95);
+    justify-content: center; align-items: center; flex-direction: column;
+    animation: fadeIn 0.3s;
+}
+
+.modal-content {
+    display: block;
+    max-width: 90%; max-height: 85vh; /* Ajustado para pantallas grandes */
+    border: 1px solid #333;
+    border-radius: 8px;
+    box-shadow: 0 0 30px rgba(0, 174, 239, 0.3);
+    object-fit: contain;
+}
+
+#caption {
+    margin-top: 15px;
+    text-align: center; color: #ccc; font-size: 1.2rem;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.close-btn {
+    position: absolute; top: 20px; right: 35px;
+    color: #fff; font-size: 50px; font-weight: bold;
+    cursor: pointer; transition: 0.3s; line-height: 1;
+}
+.close-btn:hover { color: var(--cian); }
+
+@keyframes fadeIn { from {opacity: 0} to {opacity: 1} }
+
+/* =========================================
+   7. FOOTER
+   ========================================= */
 .footer-section { background-color: #000; border-top: 1px solid #222; padding: 60px 0 20px; }
-/* Configuramos el pie de página para tener 3 columnas */
+
 .footer-grid {
     display: grid;
-    /* Antes era: 1fr 1fr. Ahora ponemos 3 columnas: */
     grid-template-columns: 1fr 1fr 1fr; 
-    gap: 30px;
-    margin-bottom: 40px;
-    align-items: center; /* Centra verticalmente los elementos */
-}
-
-/* Estilo para la nueva imagen del centro */
-.footer-img-center img {
-    width: 100%;           /* Ocupa todo el ancho de su columna */
-    height: 250px;         /* Misma altura que el mapa para que se vea simétrico */
-    object-fit: cover;     /* Recorta la imagen si es necesario para no deformarla */
-    border-radius: 10px;   /* Bordes redondeados */
-    border: 1px solid #333; /* Un borde sutil para que resalte del fondo negro */
-    box-shadow: 0 4px 15px rgba(0,0,0,0.5); /* Sombra elegante */
-}
-
-/* IMPORTANTE: En celulares, volvemos a poner todo en 1 sola columna */
-@media (max-width: 768px) {
-    .footer-grid {
-        grid-template-columns: 1fr; /* Una sola columna vertical */
-    }
-    .footer-img-center img {
-        height: auto; /* En celular dejamos que la altura sea natural */
-        margin-bottom: 20px;
-    }
+    gap: 30px; margin-bottom: 40px; align-items: center;
 }
 
 .footer-info i { color: var(--verde); width: 25px; }
+
+/* Imagen central del footer */
+.footer-img-center img {
+    width: 100%; height: 250px;
+    object-fit: cover; border-radius: 10px;
+    border: 1px solid #333; box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    transition: 0.3s;
+    cursor: pointer; /* Clickeable para el lightbox */
+}
+.footer-img-center img:hover { border-color: var(--verde); opacity: 0.9; }
+
 .copyright { text-align: center; color: #555; font-size: 0.8rem; border-top: 1px solid #111; padding-top: 20px; }
 
-/* WHATSAPP */
+/* =========================================
+   8. WHATSAPP FLOTANTE
+   ========================================= */
 .btn-wsp {
     position: fixed; bottom: 30px; right: 30px;
     width: 60px; height: 60px; background: #25d366; color: white;
     border-radius: 50%; display: flex; justify-content: center; align-items: center;
     font-size: 30px; box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4); z-index: 2000;
+    transition: 0.3s;
 }
+.btn-wsp:hover { transform: scale(1.1); box-shadow: 0 5px 25px rgba(37, 211, 102, 0.6); }
 
-/* RESPONSIVE */
+/* =========================================
+   9. RESPONSIVE (CELULARES)
+   ========================================= */
 @media (max-width: 768px) {
-    .nav-links { display: none; } /* Ocultar menú en móvil por simplicidad */
+    .nav-links { display: none; }
     .hero h1 { font-size: 2.2rem; }
     .grid-2, .footer-grid { grid-template-columns: 1fr; }
     .hero-content { margin-left: 0; text-align: center; }
     .btn-primary, .btn-outline { width: 100%; margin-bottom: 10px; }
-}
-
-/* --- ESTILOS PARA TARJETAS EXPANDIBLES --- */
-
-/* Ajuste a la tarjeta principal para que el clic funcione mejor */
-.promo-card {
-    cursor: pointer; /* Manito al pasar el mouse */
-    transition: all 0.3s ease; /* Animación suave */
-}
-
-/* Estilo de la flechita */
-.icon-arrow {
-    color: var(--texto-gris);
-    margin-top: 15px;
-    transition: transform 0.3s ease;
-}
-
-/* La parte oculta por defecto */
-.card-details {
-    max-height: 0;          /* Altura cero = oculto */
-    overflow: hidden;       /* Lo que sobresalga se esconde */
-    opacity: 0;             /* Transparente */
-    transition: all 0.5s ease-out; /* Velocidad de la animación de apertura */
-}
-
-/* Estilo de la imagen dentro del detalle */
-.details-img {
-    width: 100%;
-    border-radius: 10px;
-    margin-top: 20px;
-    margin-bottom: 15px;
-    border: 2px solid var(--negro-suave);
-}
-
-/* --- CLASE 'ACTIVE' (Se activa con JavaScript al hacer clic) --- */
-
-/* Cuando la tarjeta está activa, cambiamos el borde */
-.promo-card.active {
-    border-color: var(--cian);
-    background-color: #0a0a0a; /* Un negro un poquito más claro para resaltar */
-}
-
-/* Cuando está activa, rotamos la flechita */
-.promo-card.active .icon-arrow {
-    transform: rotate(180deg);
-    color: var(--cian);
-}
-
-/* Cuando está activa, mostramos los detalles */
-.promo-card.active .card-details {
-    max-height: 600px; /* Una altura máxima suficiente para que quepa la imagen */
-    opacity: 1;        /* Totalmente visible */
-    margin-top: 10px;
-}
-
-/* Estilo para el contenedor del logo (hace que imagen y texto se pongan en fila) */
-.logo {
-    display: flex;           /* Activa el modo fila */
-    align-items: center;     /* Centra verticalmente el texto con la imagen */
-    gap: 15px;               /* Espacio de separación entre la imagen y el texto */
-    text-decoration: none;   /* Por si acaso */
-}
-
-/* Estilo para el texto nuevo */
-.logo-text {
-    color: white;            /* Color del texto */
-    font-size: 1.1rem;       /* Tamaño de la letra */
-    font-weight: 600;        /* Grosor (seminegrita) */
-    font-family: 'Montserrat', sans-serif; /* Usamos la fuente bonita de los títulos */
-    letter-spacing: 1px;     /* Un poco de aire entre letras */
-    text-transform: uppercase; /* Opcional: pone todo en MAYÚSCULAS automáticamente */
+    .footer-img-center img { height: auto; margin-bottom: 20px; }
+    .logo-text { font-size: 0.9rem; } /* Logo texto más pequeño en móvil */
 }

@@ -152,24 +152,61 @@
         <i class="fab fa-whatsapp"></i>
     </a>
 
+    <div id="imageModal" class="modal">
+        <span class="close-btn">&times;</span>
+        <img class="modal-content" id="imgExpandid">
+        <div id="caption"></div>
+    </div>
+
     <script>
-        const cards = document.querySelectorAll('.promo-card');
+        // 1. Obtenemos los elementos de la ventana
+        var modal = document.getElementById("imageModal");
+        var modalImg = document.getElementById("imgExpandid");
+        var captionText = document.getElementById("caption");
+        var span = document.getElementsByClassName("close-btn")[0];
 
-        // Para cada tarjeta, agregamos un "escuchador" de clics
+        // FUNCIÓN PARA ABRIR EL MODAL
+        function abrirImagen(src, texto) {
+            modal.style.display = "flex"; // Mostramos la ventana
+            modalImg.src = src;           // Ponemos la imagen que nos pasen
+            captionText.innerHTML = texto || ""; // Ponemos el texto (si hay)
+        }
+
+        // 2. Configurar clic en las TARJETAS DE PROMOCIÓN
+        var cards = document.querySelectorAll('.promo-card');
         cards.forEach(card => {
-            card.addEventListener('click', () => {
-                // OPCIONAL: Si quieres que al abrir una se cierren las demás (efecto acordeón),
-                // descomenta las siguientes 3 líneas quitando las // del principio:
-                
-                // cards.forEach(c => {
-                //    if (c !== card) c.classList.remove('active');
-                // });
-
-                // Alternamos la clase 'active' en la tarjeta que se clickeó
-                card.classList.toggle('active');
+            card.addEventListener('click', function() {
+                // Buscamos la imagen oculta dentro de la tarjeta
+                var imgOculta = this.querySelector('.details-img');
+                if (imgOculta) {
+                    // Abrimos el modal con esa imagen
+                    abrirImagen(imgOculta.src, "Promoción Dúo Plus");
+                }
             });
         });
+
+        // 3. Configurar clic en la IMAGEN DE DIRECCIÓN (Footer)
+        var footerImg = document.querySelector('.footer-img-center img');
+        if (footerImg) {
+            footerImg.style.cursor = "pointer"; // Manito al pasar el mouse
+            footerImg.addEventListener('click', function() {
+                abrirImagen(this.src, "Nuestra Ubicación");
+            });
+        }
+
+        // 4. Botón de cerrar (X)
+        span.onclick = function() { 
+            modal.style.display = "none";
+        }
+
+        // Cerrar si se da clic fuera de la imagen
+        modal.onclick = function(event) {
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        }
     </script>
+
 
 </body>
 </html>
